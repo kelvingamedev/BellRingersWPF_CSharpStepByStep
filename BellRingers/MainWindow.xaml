@@ -17,6 +17,9 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="bellRingersFontStyle" TargetType="Control">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Image x:Name="image" Margin="0,0,0,0" Panel.ZIndex="0">
@@ -24,26 +27,26 @@
                 <BitmapImage UriSource="bell.gif"/>
             </Image.Source>
         </Image>
-        <Label x:Name="labelFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="29,26,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="104,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="labelSecondName" Content="Last Name:" HorizontalAlignment="Left" Margin="263,26,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxSecondName" HorizontalAlignment="Left" Height="23" Margin="352,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Tower:" HorizontalAlignment="Left" Margin="46,72,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBoxTowers" HorizontalAlignment="Left" Margin="104,72,0,0" VerticalAlignment="Top" Width="120" Height="163" />
-        <CheckBox x:Name="isCaptain" Content="Captain" HorizontalAlignment="Left" Margin="263,78,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelMemberSince" Content="Member since:" HorizontalAlignment="Left" Margin="46,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.685,0.731"/>
-        <DatePicker x:Name="dateMemberSince" HorizontalAlignment="Left" Margin="158,264,0,0" VerticalAlignment="Top" Width="142"/>
-        <GroupBox x:Name="groupYearsOfExperience" Header="Experience"  Margin="46,322,396,0" Height="205" Width="150" VerticalAlignment="Top">
-            <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="150" >
-                <RadioButton x:Name="novice" Content="Up to 1 year"  Margin="0,10,0,0"/>
-                <RadioButton x:Name="intermediate" Content="1 to 4 years" Margin="0,10,0,0"/>
-                <RadioButton x:Name="experienced" Content="5 to 9 years" Margin="0,10,0,0"/>
-                <RadioButton x:Name="accomplished" Content="10 or more years" Margin="0,10,0,0"/>
+        <Label x:Name="labelFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="29,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="121,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}"/>
+        <Label x:Name="labelLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="305,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}"  />
+        <TextBox x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23" Margin="380,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}"/>
+        <Label x:Name="labelTower" Content="Tower:" HorizontalAlignment="Left" Margin="29,72,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}"/>
+        <ComboBox x:Name="comboBoxTowers" HorizontalAlignment="Left" Margin="121,72,0,0" VerticalAlignment="Top" Width="275" Height="23" Style="{StaticResource bellRingersFontStyle}" />
+        <CheckBox x:Name="isCaptain" Content="Captain" HorizontalAlignment="Left" Margin="420,72,0,0" VerticalAlignment="Top" Height="23" Width="75" Style="{StaticResource bellRingersFontStyle}"/>
+        <Label x:Name="labelMemberSince" Height="23" Width="90" Content="Member since:" HorizontalAlignment="Left" Margin="29,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.685,0.731" Style="{StaticResource bellRingersFontStyle}"/>
+        <DatePicker x:Name="dateMemberSince" Width="275" Height="23" HorizontalAlignment="Left" Margin="121,134,0,0" VerticalAlignment="Top" />
+        <GroupBox x:Name="groupYearsOfExperience"  Height="200" Header="Experience"  Margin="29,174,0,0" Width="258" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" >
+                <RadioButton x:Name="novice" Content="Up to 1 year"  Margin="0,10,0,0" Width="120" Height="16"/>
+                <RadioButton x:Name="intermediate" Content="1 to 4 years" Margin="0,10,0,0" Width="120" Height="16"/>
+                <RadioButton x:Name="experienced" Content="5 to 9 years" Margin="0,10,0,0" Width="120" Height="16"/>
+                <RadioButton x:Name="accomplished" Content="10 or more years" Margin="0,10,0,0" Width="120" Height="16"/>
             </StackPanel>
         </GroupBox>
-        <ListBox x:Name="methods" HorizontalAlignment="Left" Height="100" Margin="201,345,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="30,545,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="474,546,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.48,2.55"/>
+        <ListBox x:Name="listBoxMethods" HorizontalAlignment="Left" Height="200" Margin="310,174,0,0" VerticalAlignment="Top" Width="245"/>
+        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="188,388,0,0" VerticalAlignment="Top" Width="75" Height="23" Style="{StaticResource bellRingersStyle}" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="313,388,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="-1.48,2.55" Style="{StaticResource bellRingersStyle}" Click="buttonClear_Click"/>
 
     </Grid>
 </Window>

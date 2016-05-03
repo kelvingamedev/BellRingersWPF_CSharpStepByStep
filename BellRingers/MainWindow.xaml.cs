@@ -20,9 +20,64 @@ namespace BellRingers
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string[] towers = { "Great Shevington", "Little Mudford", "Upper Gumtree", "Downley Hatch" };
+        private string[] ringingMethods = { "Plain Bob", "Reverse Canterbury",
+                                            "Grandsire", "Kent Treble Bob", "Old Oxford Delight",
+                                            "Wincendon Place", "Norwitch Suprise",
+                                            "Crayford Little Court"};
+
         public MainWindow()
         {
             InitializeComponent();
+            this.Reset();
+        }
+
+        public void Reset() {
+            textBoxFirstName.Text = String.Empty;
+            textBoxLastName.Text = String.Empty;
+
+            comboBoxTowers.Items.Clear();
+            foreach (String towerName in towers)
+            {
+                comboBoxTowers.Items.Add(towerName);
+            }
+            comboBoxTowers.Text = comboBoxTowers.Items[0] as string;
+
+            listBoxMethods.Items.Clear();
+            CheckBox method = null;
+            foreach (string methodName in ringingMethods)
+            {
+                method = new CheckBox();
+                method.Margin = new Thickness(0, 0, 0, 10);
+                method.Content = methodName;
+                listBoxMethods.Items.Add(method);
+            }
+            isCaptain.IsChecked = false;
+            novice.IsChecked = true;
+            dateMemberSince.Text = DateTime.Today.ToString();
+        }
+
+        private void buttonClear_Click(object sender, RoutedEventArgs e)
+        {
+            this.Reset();
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string nameAndTower = String.Format(
+                "Member name: {0} {1} from the tower at {2} rings the following methods:",
+                textBoxFirstName.Text, textBoxLastName.Text, comboBoxTowers.Text
+                );
+
+            StringBuilder details = new StringBuilder();
+            details.AppendLine(nameAndTower);
+
+            foreach (CheckBox cb in listBoxMethods.Items)
+            {
+                details.AppendLine(cb.Content.ToString());
+            }
+
+            MessageBox.Show(details.ToString(), "Member Information");
         }
     }
 }
