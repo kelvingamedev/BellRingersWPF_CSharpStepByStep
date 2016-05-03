@@ -1,0 +1,14 @@
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\bin\Debug\BellRingers.exe.config
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\bin\Debug\BellRingers.exe
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\bin\Debug\BellRingers.pdb
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.csprojResolveAssemblyReference.cache
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\MainWindow.g.cs
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\App.g.cs
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers_MarkupCompile.cache
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers_MarkupCompile.lref
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\MainWindow.baml
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.g.resources
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.Properties.Resources.resources
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.csproj.GenerateResource.Cache
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.exe
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.pdb
