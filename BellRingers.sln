@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BellRingers", "BellRingers\BellRingers.csproj", "{DA7F7992-9F8C-4B49-97A0-2B7BD2561EBF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40846FA5-5984-49D3-8123-061B1EAE5E9E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Chapter 23\Face.BMP = ..\..\Chapter 23\Face.BMP
+		..\..\Chapter 23\Note.BMP = ..\..\Chapter 23\Note.BMP
+		..\..\Chapter 23\Ring.BMP = ..\..\Chapter 23\Ring.BMP
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

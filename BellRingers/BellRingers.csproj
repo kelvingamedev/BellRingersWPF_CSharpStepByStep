@@ -98,6 +98,11 @@
   <ItemGroup>
     <Resource Include="bell.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Face.BMP" />
+    <Resource Include="Note.BMP" />
+    <Resource Include="Ring.BMP" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
