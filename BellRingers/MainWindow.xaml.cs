@@ -79,5 +79,15 @@ namespace BellRingers
 
             MessageBox.Show(details.ToString(), "Member Information");
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult key = MessageBox.Show(
+                "Are you sure you want to quit", "Confirm",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question,
+                MessageBoxResult.No);
+            e.Cancel = (key == MessageBoxResult.No);
+        }
     }
 }

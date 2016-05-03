@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BellRingers"
         mc:Ignorable="d"
-        Title="Middleshire Bell Ringers Association - Members" Height="611" Width="600">
+        Title="Middleshire Bell Ringers Association - Members" Height="611" Width="600"
+        Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="bellRingersStyle" TargetType="Control">
             <Setter Property="Button.Background" Value="Gray"/>
