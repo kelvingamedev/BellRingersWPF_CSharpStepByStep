@@ -32,7 +32,8 @@ namespace BellRingers
             this.Reset();
         }
 
-        public void Reset() {
+        public void Reset()
+        {
             textBoxFirstName.Text = String.Empty;
             textBoxLastName.Text = String.Empty;
 
@@ -74,7 +75,10 @@ namespace BellRingers
 
             foreach (CheckBox cb in listBoxMethods.Items)
             {
-                details.AppendLine(cb.Content.ToString());
+                if (cb.IsChecked.Value)
+                {
+                    details.AppendLine(cb.Content.ToString());
+                }
             }
 
             MessageBox.Show(details.ToString(), "Member Information");
@@ -88,6 +92,21 @@ namespace BellRingers
                 MessageBoxImage.Question,
                 MessageBoxResult.No);
             e.Cancel = (key == MessageBoxResult.No);
+        }
+
+        private void newMember_Click(object sender, RoutedEventArgs e)
+        {
+            this.Reset();
+            saveMember.IsEnabled = true;
+            textBoxFirstName.IsEnabled = true;
+            textBoxLastName.IsEnabled = true;
+            comboBoxTowers.IsEnabled = true;
+            isCaptain.IsEnabled = true;
+            dateMemberSince.IsEnabled = true;
+            groupYearsOfExperience.IsEnabled = true;
+            listBoxMethods.IsEnabled = true;
+            buttonClear.IsEnabled = true;
+            buttonAdd.IsEnabled = true;
         }
     }
 }

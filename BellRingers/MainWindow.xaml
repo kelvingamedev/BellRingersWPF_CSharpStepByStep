@@ -33,15 +33,15 @@
             </Image.Source>
         </Image>
         <Label x:Name="labelFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="29,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.RowSpan="2"/>
-        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="121,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="121,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
         <Label x:Name="labelLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="305,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.RowSpan="2"  />
-        <TextBox x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23" Margin="380,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23" Margin="380,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
         <Label x:Name="labelTower" Content="Tower:" HorizontalAlignment="Left" Margin="29,44,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1"/>
-        <ComboBox x:Name="comboBoxTowers" HorizontalAlignment="Left" Margin="121,44,0,0" VerticalAlignment="Top" Width="275" Height="23" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1" />
-        <CheckBox x:Name="isCaptain" Content="Captain" HorizontalAlignment="Left" Margin="420,44,0,0" VerticalAlignment="Top" Height="23" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1"/>
+        <ComboBox x:Name="comboBoxTowers" HorizontalAlignment="Left" Margin="121,44,0,0" VerticalAlignment="Top" Width="275" Height="23" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1" IsEnabled="False" />
+        <CheckBox x:Name="isCaptain" Content="Captain" HorizontalAlignment="Left" Margin="420,44,0,0" VerticalAlignment="Top" Height="23" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1" IsEnabled="False"/>
         <Label x:Name="labelMemberSince" Height="23" Width="90" Content="Member since:" HorizontalAlignment="Left" Margin="29,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.685,0.731" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1"/>
-        <DatePicker x:Name="dateMemberSince" Width="275" Height="23" HorizontalAlignment="Left" Margin="121,106,0,0" VerticalAlignment="Top" Grid.Row="1" />
-        <GroupBox x:Name="groupYearsOfExperience"  Height="200" Header="Experience"  Margin="182,146,152,0" Width="258" VerticalAlignment="Top" Grid.Row="1">
+        <DatePicker x:Name="dateMemberSince" Width="275" Height="23" HorizontalAlignment="Left" Margin="121,106,0,0" VerticalAlignment="Top" Grid.Row="1" IsEnabled="False" />
+        <GroupBox x:Name="groupYearsOfExperience"  Height="200" Header="Experience"  Margin="182,146,152,0" Width="258" VerticalAlignment="Top" Grid.Row="1" IsEnabled="False">
             <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" >
                 <RadioButton x:Name="novice" Content="Up to 1 year"  Margin="0,10,0,0" Width="120" Height="16"/>
                 <RadioButton x:Name="intermediate" Content="1 to 4 years" Margin="0,10,0,0" Width="120" Height="16"/>
@@ -49,18 +49,18 @@
                 <RadioButton x:Name="accomplished" Content="10 or more years" Margin="0,10,0,0" Width="120" Height="16"/>
             </StackPanel>
         </GroupBox>
-        <ListBox x:Name="listBoxMethods" HorizontalAlignment="Left" Height="200" Margin="310,146,0,0" VerticalAlignment="Top" Width="245" Grid.Row="1"/>
-        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="188,360,0,0" VerticalAlignment="Top" Width="75" Height="23" Style="{StaticResource bellRingersStyle}" Click="buttonAdd_Click" Grid.Row="1"/>
-        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="313,360,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="-1.48,2.55" Style="{StaticResource bellRingersStyle}" Click="buttonClear_Click" Grid.Row="1"/>
+        <ListBox x:Name="listBoxMethods" HorizontalAlignment="Left" Height="200" Margin="310,146,0,0" VerticalAlignment="Top" Width="245" Grid.Row="1" IsEnabled="False"/>
+        <Button x:Name="buttonAdd" IsEnabled="false" Content="Add" HorizontalAlignment="Left" Margin="188,360,0,0" VerticalAlignment="Top" Width="75" Height="23" Style="{StaticResource bellRingersStyle}" Click="buttonAdd_Click" Grid.Row="1"/>
+        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="313,360,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="-1.48,2.55" Style="{StaticResource bellRingersStyle}" IsEnabled="false" Click="buttonClear_Click" Grid.Row="1"/>
         <DockPanel HorizontalAlignment="Stretch"  LastChildFill="False" Margin="0" VerticalAlignment="Top" Width="Auto" Grid.RowSpan="2" DockPanel.Dock="Top">
             <Menu x:Name="menu1" Style="{StaticResource bellRingersFontStyle}" VerticalAlignment="Top" DockPanel.Dock="Top" Width="595">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_New Member" Name="newMember">
+                    <MenuItem Header="_New Member" Name="newMember" Click="newMember_Click">
                         <MenuItem.Icon>
                             <Image Source="Face.bmp"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Save Member Details" Name="saveMember">
+                    <MenuItem Header="_Save Member Details" Name="saveMember" IsEnabled="False">
                         <MenuItem.Icon>
                             <Image Source="Note.bmp"/>
                         </MenuItem.Icon>
