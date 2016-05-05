@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace BellRingers
 {
@@ -107,6 +108,33 @@ namespace BellRingers
             listBoxMethods.IsEnabled = true;
             buttonClear.IsEnabled = true;
             buttonAdd.IsEnabled = true;
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveMember_Click(object sender, RoutedEventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter("Members.txt"))
+            {
+                writer.WriteLine("First Name: {0}", textBoxFirstName.Text);
+                writer.WriteLine("Last Name: {0}", textBoxLastName.Text);
+                writer.WriteLine("Tower: {0}", comboBoxTowers.Text);
+                writer.WriteLine("Captain: {0}", isCaptain.IsChecked.ToString());
+                writer.WriteLine("Member Since: {0}", dateMemberSince.Text);
+                writer.WriteLine("Methods: ");
+                foreach (CheckBox cb in listBoxMethods.Items)
+                {
+                    if (cb.IsChecked.Value)
+                    {
+                        writer.WriteLine(cb.Content.ToString());
+                    }
+                }
+
+                MessageBox.Show("Member details saved", "Saved");
+            }
         }
     }
 }
