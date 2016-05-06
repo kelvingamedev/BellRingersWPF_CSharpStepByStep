@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Threading;
 
 namespace BellRingers
 {
@@ -111,6 +112,21 @@ namespace BellRingers
 
         private void saveMember_Click(object sender, RoutedEventArgs e)
         {
+
+            Member member = new Member();
+            member.FirstName = textBoxFirstName.Text;
+            member.LastName = textBoxLastName.Text;
+            member.TowerName = comboBoxTowers.Text;
+            member.IsCaptain = isCaptain.IsChecked.Value;
+            member.MemberSince = dateMemberSince.SelectedDate.Value;
+            member.Methods = new List<string>();
+
+            foreach (CheckBox cb in listBoxMethods.Items)
+            {
+                member.Methods.Add(cb.Content.ToString());
+            }
+
+
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.DefaultExt = "txt";
             saveDialog.AddExtension = true;
@@ -122,27 +138,32 @@ namespace BellRingers
 
             if (saveDialog.ShowDialog().Value)
             {
-                using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
-                {
-                    writer.WriteLine("First Name: {0}", textBoxFirstName.Text);
-                    writer.WriteLine("Last Name: {0}", textBoxLastName.Text);
-                    writer.WriteLine("Tower: {0}", comboBoxTowers.Text);
-                    writer.WriteLine("Captain: {0}", isCaptain.IsChecked.ToString());
-                    writer.WriteLine("Member Since: {0}", dateMemberSince.Text);
-                    writer.WriteLine("Methods: ");
-                    foreach (CheckBox cb in listBoxMethods.Items)
-                    {
-                        if (cb.IsChecked.Value)
-                        {
-                            writer.WriteLine(cb.Content.ToString());
-                        }
-                    }
-                }
-                MessageBox.Show("Member details saved", "Saved");
+                Thread workerThread = new Thread(
+                        () => { this.saveData(saveDialog.FileName, member); });
+                workerThread.Start();
 
             }
 
 
+        }
+
+        private void saveData(string fileName, Member member)
+        {
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                writer.WriteLine("First Name: {0}", member.FirstName);
+                writer.WriteLine("Last Name: {0}", member.LastName);
+                writer.WriteLine("Tower: {0}", member.TowerName);
+                writer.WriteLine("Captain: {0}", member.IsCaptain.ToString());
+                writer.WriteLine("Member Since: {0}", member.MemberSince.ToString());
+                writer.WriteLine("Methods: ");
+                foreach (String method in member.Methods)
+                {
+                    writer.WriteLine(method);
+                }
+            }
+            Thread.Sleep(10000);
+            MessageBox.Show("Member details saved", "Saved");
         }
 
         private void about_Click(object sender, RoutedEventArgs e)
@@ -156,5 +177,6 @@ namespace BellRingers
             textBoxFirstName.Clear();
             textBoxLastName.Clear();
         }
+
     }
 }

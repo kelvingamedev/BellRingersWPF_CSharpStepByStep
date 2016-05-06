@@ -79,6 +79,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <StatusBar Name="status" HorizontalAlignment="Left" Height="23" Style="{StaticResource bellRingersFontStyle}" Margin="114,379,0,0" Grid.Row="1" VerticalAlignment="Bottom" Width="Auto"/>
 
     </Grid>
 </Window>
