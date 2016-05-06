@@ -21,6 +21,9 @@
         <Style x:Key="bellRingersFontStyle" TargetType="Control">
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
+        <ContextMenu x:Key="textBoxMenu" Style="{StaticResource bellRingersFontStyle}">
+            <MenuItem Header="Clear Name" Name="clearName" Click="clearName_Click"/>
+        </ContextMenu>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -32,10 +35,10 @@
                 <BitmapImage UriSource="bell.gif"/>
             </Image.Source>
         </Image>
-        <Label x:Name="labelFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="29,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.RowSpan="2"/>
-        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="121,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
+        <Label x:Name="labelFirstName"  Content="First Name:" HorizontalAlignment="Left" Margin="29,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBoxFirstName" ContextMenu="{StaticResource textBoxMenu}" HorizontalAlignment="Left" Height="28" Margin="121,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
         <Label x:Name="labelLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="305,25,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.RowSpan="2"  />
-        <TextBox x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23" Margin="380,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
+        <TextBox x:Name="textBoxLastName" ContextMenu="{StaticResource textBoxMenu}" HorizontalAlignment="Left" Height="23" Margin="380,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Style="{StaticResource bellRingersStyle}" Grid.RowSpan="2" IsEnabled="False"/>
         <Label x:Name="labelTower" Content="Tower:" HorizontalAlignment="Left" Margin="29,44,0,0" VerticalAlignment="Top" Height="28" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1"/>
         <ComboBox x:Name="comboBoxTowers" HorizontalAlignment="Left" Margin="121,44,0,0" VerticalAlignment="Top" Width="275" Height="23" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1" IsEnabled="False" />
         <CheckBox x:Name="isCaptain" Content="Captain" HorizontalAlignment="Left" Margin="420,44,0,0" VerticalAlignment="Top" Height="23" Width="75" Style="{StaticResource bellRingersFontStyle}" Grid.Row="1" IsEnabled="False"/>
@@ -50,7 +53,6 @@
             </StackPanel>
         </GroupBox>
         <ListBox x:Name="listBoxMethods" HorizontalAlignment="Left" Height="200" Margin="310,146,0,0" VerticalAlignment="Top" Width="245" Grid.Row="1" IsEnabled="False"/>
-        <Button x:Name="buttonAdd" IsEnabled="false" Content="Add" HorizontalAlignment="Left" Margin="188,360,0,0" VerticalAlignment="Top" Width="75" Height="23" Style="{StaticResource bellRingersStyle}" Click="buttonAdd_Click" Grid.Row="1"/>
         <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="313,360,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="-1.48,2.55" Style="{StaticResource bellRingersStyle}" IsEnabled="false" Click="buttonClear_Click" Grid.Row="1"/>
         <DockPanel HorizontalAlignment="Stretch"  LastChildFill="False" Margin="0" VerticalAlignment="Top" Width="Auto" Grid.RowSpan="2" DockPanel.Dock="Top">
             <Menu x:Name="menu1" Style="{StaticResource bellRingersFontStyle}" VerticalAlignment="Top" DockPanel.Dock="Top" Width="595">
@@ -69,7 +71,7 @@
                     <MenuItem Header="E_xit" Name="exit" Click="exit_Click"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="_Help">
-                    <MenuItem Header="_Abbout Middleshire Bell Ringers" Name="about">
+                    <MenuItem Header="_About Middleshire Bell Ringers" Click="about_Click" Name="about">
                         <MenuItem.Icon>
                             <Image Source="Ring.bmp"></Image>
                         </MenuItem.Icon>

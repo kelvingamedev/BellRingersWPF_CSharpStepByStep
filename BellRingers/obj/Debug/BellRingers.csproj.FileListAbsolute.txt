@@ -12,3 +12,5 @@ C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 2
 C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.csproj.GenerateResource.Cache
 C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.exe
 C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\BellRingers.pdb
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\About.g.cs
+C:\Users\GAMEOVER\Documents\Microsoft Press\Visual CSharp Step By Step\Chapter 22\BellRingers\BellRingers\obj\Debug\About.baml

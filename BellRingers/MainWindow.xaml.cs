@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace BellRingers
 {
@@ -21,6 +22,7 @@ namespace BellRingers
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ContextMenu windowContextMenu = null;
         private string[] towers = { "Great Shevington", "Little Mudford", "Upper Gumtree", "Downley Hatch" };
         private string[] ringingMethods = { "Plain Bob", "Reverse Canterbury",
                                             "Grandsire", "Kent Treble Bob", "Old Oxford Delight",
@@ -31,6 +33,18 @@ namespace BellRingers
         {
             InitializeComponent();
             this.Reset();
+
+            MenuItem saveMemberMenuItem = new MenuItem();
+            saveMemberMenuItem.Header = "Save Member Details";
+            saveMemberMenuItem.Click += new RoutedEventHandler(saveMember_Click);
+
+            MenuItem clearFormMenuItem = new MenuItem();
+            clearFormMenuItem.Header = "Clear Form";
+            saveMemberMenuItem.Click += new RoutedEventHandler(buttonClear_Click);
+
+            windowContextMenu = new ContextMenu();
+            windowContextMenu.Items.Add(saveMemberMenuItem);
+            windowContextMenu.Items.Add(clearFormMenuItem);
         }
 
         public void Reset()
@@ -64,26 +78,6 @@ namespace BellRingers
             this.Reset();
         }
 
-        private void buttonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            string nameAndTower = String.Format(
-                "Member name: {0} {1} from the tower at {2} rings the following methods:",
-                textBoxFirstName.Text, textBoxLastName.Text, comboBoxTowers.Text
-                );
-
-            StringBuilder details = new StringBuilder();
-            details.AppendLine(nameAndTower);
-
-            foreach (CheckBox cb in listBoxMethods.Items)
-            {
-                if (cb.IsChecked.Value)
-                {
-                    details.AppendLine(cb.Content.ToString());
-                }
-            }
-
-            MessageBox.Show(details.ToString(), "Member Information");
-        }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -107,7 +101,7 @@ namespace BellRingers
             groupYearsOfExperience.IsEnabled = true;
             listBoxMethods.IsEnabled = true;
             buttonClear.IsEnabled = true;
-            buttonAdd.IsEnabled = true;
+            this.ContextMenu = windowContextMenu;
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -117,24 +111,50 @@ namespace BellRingers
 
         private void saveMember_Click(object sender, RoutedEventArgs e)
         {
-            using (StreamWriter writer = new StreamWriter("Members.txt"))
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.DefaultExt = "txt";
+            saveDialog.AddExtension = true;
+            saveDialog.FileName = "Members";
+            saveDialog.InitialDirectory = @"C:\Users\GAMEOVER\Documents";
+            saveDialog.OverwritePrompt = true;
+            saveDialog.Title = "Bell Ringers";
+            saveDialog.ValidateNames = true;
+
+            if (saveDialog.ShowDialog().Value)
             {
-                writer.WriteLine("First Name: {0}", textBoxFirstName.Text);
-                writer.WriteLine("Last Name: {0}", textBoxLastName.Text);
-                writer.WriteLine("Tower: {0}", comboBoxTowers.Text);
-                writer.WriteLine("Captain: {0}", isCaptain.IsChecked.ToString());
-                writer.WriteLine("Member Since: {0}", dateMemberSince.Text);
-                writer.WriteLine("Methods: ");
-                foreach (CheckBox cb in listBoxMethods.Items)
+                using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
                 {
-                    if (cb.IsChecked.Value)
+                    writer.WriteLine("First Name: {0}", textBoxFirstName.Text);
+                    writer.WriteLine("Last Name: {0}", textBoxLastName.Text);
+                    writer.WriteLine("Tower: {0}", comboBoxTowers.Text);
+                    writer.WriteLine("Captain: {0}", isCaptain.IsChecked.ToString());
+                    writer.WriteLine("Member Since: {0}", dateMemberSince.Text);
+                    writer.WriteLine("Methods: ");
+                    foreach (CheckBox cb in listBoxMethods.Items)
                     {
-                        writer.WriteLine(cb.Content.ToString());
+                        if (cb.IsChecked.Value)
+                        {
+                            writer.WriteLine(cb.Content.ToString());
+                        }
                     }
                 }
-
                 MessageBox.Show("Member details saved", "Saved");
+
             }
+
+
+        }
+
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            About aboutWindow = new About();
+            aboutWindow.ShowDialog();
+        }
+
+        private void clearName_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxFirstName.Clear();
+            textBoxLastName.Clear();
         }
     }
 }
